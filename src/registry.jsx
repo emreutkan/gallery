@@ -28,6 +28,7 @@ import SpinnersDoc from './elements/SpinnersDoc.jsx'
 import GooeyDoc from './elements/GooeyDoc.jsx'
 import TextMorphDoc from './elements/TextMorphDoc.jsx'
 import MorphIconDoc from './elements/MorphIconDoc.jsx'
+import CreditCardDoc from './elements/CreditCardDoc.jsx'
 import CopyButtonDoc from './elements/CopyButtonDoc.jsx'
 import LoadingButtonDoc from './elements/LoadingButtonDoc.jsx'
 import HoldToConfirmDoc from './elements/HoldToConfirmDoc.jsx'
@@ -81,6 +82,7 @@ export const CATEGORIES = [
       { id: 'switch', name: 'Switch', pkg: 'fluidfunctionalism', Doc: SwitchDoc },
       { id: 'combobox', name: 'Combobox', pkg: 'fluidfunctionalism', Doc: ComboboxDoc },
       { id: 'color-picker', name: 'Color Picker', pkg: 'fluidfunctionalism', Doc: ColorPickerDoc },
+      { id: 'credit-card', name: 'Credit Card', pkg: 'crd-ui', Doc: CreditCardDoc },
     ],
   },
   {

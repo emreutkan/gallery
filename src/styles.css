@@ -1584,3 +1584,42 @@ pre.code {
 }
 .dark .mi-pick.is-active { background: rgba(255,255,255,0.08); }
 .mi-pick:focus-visible { box-shadow: 0 0 0 1px #6b97ff; }
+
+/* credit-card demo */
+.cc-demo-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 26px;
+  padding-block: 36px;
+}
+.cc-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  width: min(340px, 100%);
+}
+.cc-field { display: flex; flex-direction: column; gap: 4px; }
+.cc-field--wide { grid-column: 1 / -1; }
+.cc-field span {
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted-fg);
+}
+.cc-field input {
+  font: inherit;
+  font-size: 13px;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--card, #fff);
+  color: var(--fg, #1c1917);
+  outline: none;
+}
+.cc-field input:focus { border-color: var(--fg, #1c1917); }
+.cc-brand {
+  font-size: 11px;
+  color: var(--muted-fg);
+  align-self: center;
+}
