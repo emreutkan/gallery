@@ -1548,3 +1548,39 @@ pre.code {
   font-variant-numeric: tabular-nums;
   color: var(--fg, #1c1917);
 }
+
+/* morph-icon demo */
+.mi-demo-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+  padding-block: 36px;
+}
+.mi-hero { color: var(--fg, #1c1917); }
+.mi-picker {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.mi-pick {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--muted-fg);
+  cursor: pointer;
+  transition: color 120ms ease, border-color 120ms ease, background 120ms ease;
+}
+.mi-pick:hover { color: var(--fg, #1c1917); }
+.mi-pick.is-active {
+  color: var(--fg, #1c1917);
+  border-color: var(--fg, #1c1917);
+  background: rgba(28,25,23,0.05);
+}
+.dark .mi-pick.is-active { background: rgba(255,255,255,0.08); }
+.mi-pick:focus-visible { box-shadow: 0 0 0 1px #6b97ff; }

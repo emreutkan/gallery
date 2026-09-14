@@ -27,6 +27,7 @@ import WordStreamDoc from './elements/WordStreamDoc.jsx'
 import SpinnersDoc from './elements/SpinnersDoc.jsx'
 import GooeyDoc from './elements/GooeyDoc.jsx'
 import TextMorphDoc from './elements/TextMorphDoc.jsx'
+import MorphIconDoc from './elements/MorphIconDoc.jsx'
 import CopyButtonDoc from './elements/CopyButtonDoc.jsx'
 import LoadingButtonDoc from './elements/LoadingButtonDoc.jsx'
 import HoldToConfirmDoc from './elements/HoldToConfirmDoc.jsx'
@@ -64,6 +65,7 @@ export const CATEGORIES = [
       { id: 'like-button', name: 'Like Button', pkg: 'transitions.dev', Doc: LikeButtonDoc },
       { id: 'ripple', name: 'Ripple', pkg: 'interior.dev', Doc: RippleDoc },
       { id: 'icon-morph', name: 'Icon Morph', pkg: 'interior.dev', Doc: IconMorphDoc },
+      { id: 'morph-icon', name: 'Morph Icon', pkg: 'morphicons', Doc: MorphIconDoc },
       { id: 'press-depth', name: 'Press Depth', pkg: 'interior.dev', Doc: PressDepthDoc },
     ],
   },
