@@ -1,0 +1,145 @@
+{
+  "title": "Choose the visual world",
+  "question": "The roll assigned The Survey Plate Archive. Keep it, take an alternate, or re-roll.",
+  "options": [
+    {
+      "id": "assigned",
+      "label": "The Survey Plate Archive",
+      "kicker": "THE ROLL",
+      "lineage": "cartographic survey folios and plate archives",
+      "thesis": "Every element is a surveyed specimen, plotted on a graticule and filed under a folio volume.",
+      "palette": ["#ece3d0", "#241f16", "#c24726", "#33566f"],
+      "materials": ["graticule hairlines", "engraved plate marks", "accession stamps"],
+      "viewport": "A folio rail on the left; the first plate fills the field — the orb plotted at dead center on coordinate lines, accession mark in the corner, props as marginalia along the plate edge.",
+      "risk": "Reads decorative if the graticule is wallpaper instead of a working coordinate system.",
+      "raised": [
+        { "from": "challenger-raku", "raise": "Asymmetry as law — plates are sized to their element, never uniform cards." },
+        { "from": "challenger-cloud-edge", "raise": "Color lives only on hairline marks and the active plate edge." },
+        { "from": "challenger-toyism", "raise": "Every plate carries a fixed corner accession mark — category plus number." },
+        { "from": "challenger-stickers", "raise": "The copy button is a stamp press with a physical down-state." }
+      ],
+      "wireframe": { "cols": 12, "rows": 10, "regions": [
+        { "label": "folio rail", "x": 0, "y": 0, "w": 2, "h": 10, "accent": true },
+        { "label": "plate field", "x": 3, "y": 1, "w": 8, "h": 7 },
+        { "label": "marginalia", "x": 3, "y": 9, "w": 8, "h": 1 }
+      ] }
+    },
+    {
+      "id": "model-pick",
+      "label": "The Specimen Cabinet",
+      "kicker": "IMPECCABLE’S PICK",
+      "lineage": "museum vitrines and natural-history accession labels",
+      "thesis": "A public vitrine: each element pinned under glass with an accession label; copying checks the specimen out.",
+      "palette": ["#f5f2ea", "#17150f", "#9a7b3f"],
+      "materials": ["glass case sheen", "brass label plates", "pinned shadows"],
+      "viewport": "A title strip, then a cabinet grid of unequal cases — the orb centered in the largest vitrine, its label plate below.",
+      "risk": "The familiar answer — 'collection in cases' is what most gallery builds ship.",
+      "wireframe": { "cols": 12, "rows": 10, "regions": [
+        { "label": "title strip", "x": 0, "y": 0, "w": 12, "h": 2 },
+        { "label": "vitrine", "x": 1, "y": 3, "w": 5, "h": 5, "accent": true },
+        { "label": "case", "x": 7, "y": 3, "w": 4, "h": 3 },
+        { "label": "case", "x": 7, "y": 7, "w": 4, "h": 2 },
+        { "label": "index rail", "x": 0, "y": 9, "w": 12, "h": 1 }
+      ] }
+    },
+    {
+      "id": "challenger-specimen",
+      "label": "The Live Specimen Sheet",
+      "verdict": "competitive",
+      "lineage": "variable-font specimen proofs",
+      "thesis": "A type-specimen sheet adapted to UI: prop sliders remap every live preview on the sheet at once.",
+      "palette": ["#faf9f5", "#141414", "#1d4fd7"],
+      "materials": ["baseline grid", "mono coordinate readouts"],
+      "viewport": "The orb huge up top; below, a grid of all nine states breathing in step while a slider row remaps them live.",
+      "case": "Fuses cleanly — props become axes and the orb's nine states become named instances — but it sits one step from the docs-page rut.",
+      "risk": "Adjacent to every light-minimal dev-tool page; only the live remap saves it.",
+      "hero": "https://impeccable.style/worlds/cards/variable-font-specimen-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/variable-font-specimen.webp",
+      "wireframe": { "cols": 12, "rows": 10, "regions": [
+        { "label": "display specimen", "x": 0, "y": 0, "w": 12, "h": 4, "accent": true },
+        { "label": "state grid", "x": 1, "y": 5, "w": 10, "h": 4 },
+        { "label": "axis rail", "x": 0, "y": 9, "w": 12, "h": 1 }
+      ] }
+    },
+    {
+      "id": "challenger-step-row",
+      "label": "The Step-Row Console",
+      "verdict": "competitive",
+      "lineage": "early-80s drum machine panels",
+      "thesis": "An instrument panel where each element's states sit on a lit step row and a chase light shows the live one.",
+      "palette": ["#232019", "#f2ede0", "#c33a2a", "#e08a2e", "#e7c94b"],
+      "materials": ["silkscreen caps", "lit step keys", "segmented readout"],
+      "viewport": "A tempo-style readout up top, one unbroken row of nine lit state keys under it — the orb panel below follows the chase.",
+      "case": "The nine orb states map perfectly to a nine-key row; category browsing as pattern banks strains for arbitrary future components.",
+      "risk": "Synth cosplay when an element has no enumerable states.",
+      "hero": "https://impeccable.style/worlds/cards/signals-instruments-drum-machine-step-row-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/signals-instruments-drum-machine-step-row.webp",
+      "wireframe": { "cols": 12, "rows": 10, "regions": [
+        { "label": "readout", "x": 0, "y": 0, "w": 12, "h": 2 },
+        { "label": "step row", "x": 0, "y": 3, "w": 12, "h": 2, "accent": true },
+        { "label": "panel", "x": 2, "y": 6, "w": 8, "h": 4 }
+      ] }
+    },
+    {
+      "id": "challenger-cloud-edge",
+      "label": "The Iridescent Edge",
+      "verdict": "declined",
+      "lineage": "diffracted cloud crowns",
+      "palette": ["#f4f6f8", "#5a6675", "#b9e3c6", "#e8c4d8", "#c5bde8"],
+      "materials": ["spectral hairline bands"],
+      "case": "A pastel fringe on a white field never explains what a component is or does.",
+      "kept": "Color confined to hairline marks while the field stays achromatic.",
+      "hero": "https://impeccable.style/worlds/cards/clouds-storms-auroras-iridescent-cloud-edge-hero.webp"
+    },
+    {
+      "id": "challenger-raku",
+      "label": "The Kiln Log",
+      "verdict": "declined",
+      "lineage": "raku smoke-flash firing",
+      "palette": ["#141210", "#c9c9c4", "#e0641f"],
+      "materials": ["carbonized clay", "crackle glaze"],
+      "case": "Staged firing states fight a browse-and-copy task; the soot field buries third-party component palettes.",
+      "kept": "Asymmetry as compositional law — plates sized to their element.",
+      "hero": "https://impeccable.style/worlds/cards/clay-ceramics-fracture-raku-smoke-flash-hero.webp"
+    },
+    {
+      "id": "challenger-toyism",
+      "label": "The Collective Plate",
+      "verdict": "declined",
+      "lineage": "toyist shared-symbol panels",
+      "palette": ["#f0ede4", "#2244aa", "#cc2e88", "#e8d32a"],
+      "materials": ["hard-edged figures", "fixed palette"],
+      "case": "A fixed cobalt-magenta-lemon palette clashes with third-party elements that bring their own color.",
+      "kept": "The locked corner signature — every plate gets an accession mark.",
+      "hero": "https://impeccable.style/worlds/cards/design-canon-toyism-signed-collective-plate-hero.webp"
+    },
+    {
+      "id": "challenger-stickers",
+      "label": "The Road Case",
+      "verdict": "declined",
+      "lineage": "sticker-accretion tour cases",
+      "palette": ["#191a1c", "#c8bfae", "#d44b2f", "#3f7fbf"],
+      "materials": ["die-cut vinyl", "adhesive scars"],
+      "case": "Half-covered surfaces are the opposite of a legible component preview.",
+      "kept": "The tactile press — the copy action stamps down and leaves a mark.",
+      "hero": "https://impeccable.style/worlds/cards/vernacular-ephemera-layered-sticker-accretion-hero.webp"
+    }
+  ],
+  "reroll": { "registers": ["safer", "bolder"] },
+  "buildPath": { "value": "code", "toggle": false },
+  "canon": true,
+  "canonCard": {
+    "label": "The category standard",
+    "thesis": "The Storybook-style docs layout every component gallery ships, executed impeccably.",
+    "palette": ["#ffffff", "#111827", "#2563eb"],
+    "materials": ["clean grid", "sidebar index"],
+    "viewport": "Left category sidebar, neutral canvas, tidy cards with copy buttons.",
+    "risk": "Indistinguishable from every other component site by design.",
+    "wireframe": { "cols": 12, "rows": 10, "regions": [
+      { "label": "sidebar", "x": 0, "y": 0, "w": 3, "h": 10, "accent": true },
+      { "label": "canvas", "x": 4, "y": 1, "w": 7, "h": 6 },
+      { "label": "code strip", "x": 4, "y": 8, "w": 7, "h": 2 }
+    ] }
+  },
+  "steer": true
+}

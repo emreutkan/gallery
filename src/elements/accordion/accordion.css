@@ -1,0 +1,142 @@
+/* Accordion — zero-dependency styles (ported from interior.dev). */
+
+.ac {
+  overflow: hidden;
+  border-radius: 11px;
+  border: 1px solid #e7e5e4;
+  background: #ffffff;
+  box-shadow:
+    0 1px 2px rgba(28, 25, 23, 0.06),
+    0 4px 10px -8px rgba(28, 25, 23, 0.45);
+}
+
+.ac-row + .ac-row {
+  border-top: 1px solid #e7e5e4;
+}
+
+.ac-head {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border: none;
+  background: transparent;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 150ms ease;
+}
+.ac-head:hover {
+  background: #f5f5f4;
+}
+.ac-head:focus-visible {
+  background: rgba(69, 104, 255, 0.06);
+  box-shadow: inset 0 0 0 1px #4568ff;
+}
+
+.ac-title {
+  min-width: 0;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 13px;
+  font-weight: 500;
+  color: #44403c;
+  transition: color 150ms ease;
+}
+.ac-title.on {
+  color: #1c1917;
+}
+
+.ac-meta {
+  flex-shrink: 0;
+  font-size: 11.5px;
+  font-variant-numeric: tabular-nums;
+  color: #a8a29e;
+}
+
+.ac-chev {
+  flex-shrink: 0;
+  color: #78716c;
+  transition: transform 260ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+.ac-chev[data-on] {
+  transform: rotate(180deg);
+}
+
+/* the collapse wrapper animates a measured pixel height — the inner
+   region is what ResizeObserver actually reads */
+.ac-collapse {
+  overflow: hidden;
+  transition: height 300ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.ac-region {
+  border-top: 1px solid #e7e5e4;
+  background: #fafaf9;
+  box-shadow: inset 0 1px 2px rgba(28, 25, 23, 0.05);
+}
+
+.ac-inner {
+  padding: 12px 14px 14px;
+  font-size: 12.5px;
+  line-height: 1.625;
+  color: #78716c;
+  opacity: 0;
+  /* close fades a touch faster than open */
+  transition: opacity 140ms cubic-bezier(0.4, 0, 1, 1);
+}
+.ac-inner[data-on] {
+  opacity: 1;
+  transition: opacity 180ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+.ac-inner > p {
+  margin: 0;
+}
+
+.dark .ac {
+  border-color: rgba(255, 255, 255, 0.16);
+  background: #1d1d1a;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.45);
+}
+.dark .ac-row + .ac-row {
+  border-top-color: rgba(255, 255, 255, 0.1);
+}
+.dark .ac-head:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+.dark .ac-head:focus-visible {
+  background: rgba(147, 176, 255, 0.1);
+  box-shadow: inset 0 0 0 1px #93b0ff;
+}
+.dark .ac-title {
+  color: #e7e5e4;
+}
+.dark .ac-title.on {
+  color: #fafaf9;
+}
+.dark .ac-meta {
+  color: #78716c;
+}
+.dark .ac-chev {
+  color: #a8a29e;
+}
+.dark .ac-region {
+  border-top-color: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+.dark .ac-inner {
+  color: #a8a29e;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ac-collapse,
+  .ac-chev,
+  .ac-inner {
+    transition: none;
+  }
+}

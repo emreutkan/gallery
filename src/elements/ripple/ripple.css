@@ -1,0 +1,58 @@
+/* Ripple — zero-dependency styles (ported from interior.dev Tailwind). */
+
+.rp {
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 9px;
+  border: 1px solid #e7e5e4;
+  background: #ffffff;
+  padding: 8px 14px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  color: #44403c;
+  cursor: pointer;
+  user-select: none;
+  outline: none;
+}
+.rp:focus-visible {
+  box-shadow: 0 0 0 2px #a8a29e;
+}
+.rp:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.rp-clip {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: inherit;
+}
+.rp-disc {
+  position: absolute;
+  display: block;
+  border-radius: 9999px;
+  background: rgba(41, 37, 36, 0.15);
+  will-change: transform, opacity;
+}
+.rp-label {
+  position: relative;
+}
+
+.dark .rp {
+  border-color: rgba(255, 255, 255, 0.16);
+  background: #1d1d1a;
+  color: #e7e5e4;
+}
+.dark .rp:focus-visible {
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.25);
+}
+.dark .rp-disc {
+  background: rgba(255, 255, 255, 0.2);
+}

@@ -1,0 +1,175 @@
+/* StickyHeader — zero-dependency styles (ported from interior.dev). */
+
+.sh {
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  border: 1px solid #e7e5e4;
+  background: #ffffff;
+  box-shadow:
+    0 1px 2px rgba(28, 25, 23, 0.06),
+    0 4px 10px -8px rgba(28, 25, 23, 0.45);
+}
+
+.sh-scroll {
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  scrollbar-gutter: stable;
+  outline: none;
+}
+.sh-scroll:focus-visible {
+  background: rgba(69, 104, 255, 0.06);
+  box-shadow: inset 0 0 0 1px #4568ff;
+}
+
+/* bottom gradient so rows don't end abruptly */
+.sh-fade {
+  pointer-events: none;
+  position: sticky;
+  bottom: 0;
+  margin-top: -24px;
+  height: 24px;
+  background: linear-gradient(to top, #ffffff, transparent);
+}
+
+/* absolutely-overlaid header — pointer-events live only on the slots */
+.sh-head {
+  pointer-events: none;
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+}
+
+/* the plate shrinks from expandedHeight to compactHeight via scaleY,
+   written per-frame by the spring follower */
+.sh-plate {
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  transform-origin: top;
+  background: #ffffff;
+  will-change: transform;
+}
+
+/* three lines ride the compact edge: a soft shadow, a fade of surface,
+   and the hairline itself. All get translateY + opacity per frame. */
+.sh-edge {
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+.sh-edge-shadow {
+  height: 1px;
+  box-shadow: 0 6px 16px -10px rgba(28, 25, 23, 0.4);
+}
+.sh-edge-fade {
+  height: 20px;
+  background: linear-gradient(to bottom, #ffffff, transparent);
+}
+.sh-edge-line {
+  height: 1px;
+  background: #e7e5e4;
+}
+
+.sh-bar {
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 16px 0;
+}
+
+.sh-slot {
+  pointer-events: auto;
+  display: flex;
+  height: 24px;
+  flex-shrink: 0;
+  align-items: center;
+}
+.sh-acts {
+  gap: 6px;
+}
+
+.sh-titles {
+  position: relative;
+  min-width: 0;
+  flex: 1;
+}
+
+.sh-big {
+  transform-origin: left top;
+  will-change: transform, opacity;
+}
+.sh-title {
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  color: #292524;
+}
+.sh-sub {
+  margin: 2px 0 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 11.5px;
+  line-height: 1.35;
+  color: #78716c;
+}
+
+.sh-small {
+  position: absolute;
+  inset-inline: 0;
+  top: 3px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: #44403c;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.dark .sh {
+  border-color: rgba(255, 255, 255, 0.16);
+  background: #1d1d1a;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.45);
+}
+.dark .sh-scroll:focus-visible {
+  background: rgba(147, 176, 255, 0.06);
+  box-shadow: inset 0 0 0 1px #93b0ff;
+}
+.dark .sh-fade {
+  background: linear-gradient(to top, #1d1d1a, transparent);
+}
+.dark .sh-plate {
+  background: #1d1d1a;
+}
+.dark .sh-edge-shadow {
+  box-shadow: 0 6px 16px -10px rgba(0, 0, 0, 0.7);
+}
+.dark .sh-edge-fade {
+  background: linear-gradient(to bottom, #1d1d1a, transparent);
+}
+.dark .sh-edge-line {
+  background: rgba(255, 255, 255, 0.16);
+}
+.dark .sh-title {
+  color: #f5f5f4;
+}
+.dark .sh-sub {
+  color: #a8a29e;
+}
+.dark .sh-small {
+  color: #e7e5e4;
+}

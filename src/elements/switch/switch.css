@@ -1,0 +1,104 @@
+/* Switch — zero-dependency styles (ported from fluidfunctionalism).
+   Track colors use local tokens; --sw-accent/--sw-overlay/--sw-focus-ring
+   are overridable by the caller. */
+
+.sw {
+  --sw-accent: #e7e5e4;
+  --sw-overlay: 28, 25, 23;
+  --sw-focus-ring: #6b97ff;
+
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  touch-action: none;
+}
+.sw-disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* size ladder */
+.sz-gap-d { gap: 8px; }
+.sz-gap-c { gap: 4px; }
+.sz-px-d { padding-inline: 12px; }
+.sz-px-c { padding-inline: 10px; }
+.sz-py-d { padding-block: 8px; }
+.sz-py-c { padding-block: 4px; }
+.sz-text-d { font-size: 13px; }
+.sz-text-c { font-size: 12px; }
+
+.sw-track {
+  position: relative;
+  flex-shrink: 0;
+  border: 0;
+  padding: 0;
+  border-radius: 999px;
+  outline: none;
+  cursor: pointer;
+  background: var(--sw-accent);
+  transition: background-color 80ms ease;
+}
+.sw-track[data-hovered]:not([data-checked]) {
+  background: color-mix(in oklab, var(--sw-accent), rgb(var(--sw-overlay)) 10%);
+}
+.sw-track[data-checked] {
+  background: #6b97ff;
+}
+.sw-track[data-checked][data-hovered] {
+  background: #5c89f2;
+}
+.sw-track:focus-visible {
+  box-shadow:
+    0 0 0 2px var(--bg, #ffffff),
+    0 0 0 3px var(--sw-focus-ring);
+}
+.sw-track:disabled {
+  cursor: default;
+}
+
+/* transform (x/y) is written imperatively; width/height squash is CSS */
+.sw-thumb {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  border-radius: 999px;
+  background: #ffffff;
+  box-shadow: 0 1px 2px rgba(28, 25, 23, 0.2);
+  transition:
+    width 160ms cubic-bezier(0.23, 1, 0.32, 1),
+    height 160ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.sw-label {
+  /* recenters letterforms against the taller track without reflow */
+  text-box: trim-both cap alphabetic;
+  color: #78716c;
+  transition: color 80ms ease;
+}
+.sw-label[data-on] {
+  color: #1c1917;
+}
+
+.dark .sw {
+  --sw-accent: rgba(255, 255, 255, 0.16);
+  --sw-overlay: 255, 255, 255;
+}
+.dark .sw-label {
+  color: #a8a29e;
+}
+.dark .sw-label[data-on] {
+  color: #f5f5f4;
+}
+.dark .sw-thumb {
+  background: #f5f5f4;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sw-thumb {
+    transition: none;
+  }
+}

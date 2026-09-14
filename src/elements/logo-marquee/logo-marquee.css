@@ -1,0 +1,130 @@
+/* LogoMarquee — zero-dependency styles (ported from interior.dev). */
+
+.lm {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: 14px;
+  border: 1px solid #e7e5e4;
+  background: #ffffff;
+  box-shadow:
+    0 1px 2px rgba(28, 25, 23, 0.06),
+    0 4px 10px -8px rgba(28, 25, 23, 0.45);
+}
+
+.lm-viewport {
+  overflow-y: hidden;
+  padding: 8px 0;
+  outline: none;
+}
+.lm-viewport:focus-visible {
+  background: rgba(69, 104, 255, 0.06);
+  box-shadow: inset 0 0 0 1px #4568ff;
+}
+
+.lm-track {
+  display: flex;
+  width: max-content;
+  align-items: center;
+}
+.lm-group {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.lm-item {
+  flex-shrink: 0;
+}
+
+.lm-face {
+  display: inline-flex;
+  height: 40px;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  border-radius: 9px;
+  border: 0;
+  padding: 0 12px;
+  background: transparent;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: #78716c;
+  text-decoration: none;
+  cursor: default;
+}
+.lm-hit {
+  cursor: pointer;
+  outline: none;
+  transition: color 150ms ease, background-color 150ms ease, box-shadow 150ms ease;
+}
+.lm-hit:hover {
+  color: #44403c;
+}
+.lm-hit:focus-visible {
+  color: #44403c;
+  background: rgba(69, 104, 255, 0.06);
+  box-shadow: inset 0 0 0 1px #4568ff;
+}
+
+.lm-edge {
+  pointer-events: none;
+  position: absolute;
+  inset-block: 0;
+  width: 40px;
+}
+.lm-edge-l {
+  left: 0;
+  background: linear-gradient(to right, #ffffff, rgba(255, 255, 255, 0));
+}
+.lm-edge-r {
+  right: 0;
+  background: linear-gradient(to left, #ffffff, rgba(255, 255, 255, 0));
+}
+
+.lm-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.dark .lm {
+  border-color: rgba(255, 255, 255, 0.16);
+  background: #1d1d1a;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.45);
+}
+.dark .lm-face {
+  color: #a8a29e;
+}
+.dark .lm-hit:hover {
+  color: #e7e5e4;
+}
+.dark .lm-hit:focus-visible {
+  color: #e7e5e4;
+  background: rgba(147, 176, 255, 0.1);
+  box-shadow: inset 0 0 0 1px #93b0ff;
+}
+.dark .lm-viewport:focus-visible {
+  background: rgba(147, 176, 255, 0.1);
+  box-shadow: inset 0 0 0 1px #93b0ff;
+}
+.dark .lm-edge-l {
+  background: linear-gradient(to right, #1c1917, rgba(28, 25, 23, 0));
+}
+.dark .lm-edge-r {
+  background: linear-gradient(to left, #1c1917, rgba(28, 25, 23, 0));
+}

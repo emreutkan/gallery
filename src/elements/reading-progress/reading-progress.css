@@ -1,0 +1,114 @@
+/* ReadingProgress — zero-dependency styles (ported from interior.dev). */
+
+.rp {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.rp-track {
+  min-width: 0;
+  flex: 1;
+  border-radius: 4px;
+  background: #f5f5f4;
+  padding: 2px;
+  box-shadow: inset 0 1px 2px rgba(28, 25, 23, 0.07);
+}
+
+/* the spring smoothing between quantized steps is just a transform
+   transition — the step count still rate-limits renders upstream */
+.rp-fill {
+  height: 3px;
+  width: 100%;
+  transform-origin: left;
+  border-radius: 2px;
+  background: #4568ff;
+  transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* both readouts share one grid cell; the widest (the "End · N min"
+   string plus its icon) reserves the width once */
+.rp-readout {
+  display: grid;
+  justify-items: end;
+  flex-shrink: 0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 10.5px;
+  font-variant-numeric: tabular-nums;
+}
+.rp-pad,
+.rp-left,
+.rp-done {
+  grid-column: 1;
+  grid-row: 1;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.rp-pad {
+  visibility: hidden;
+}
+.rp-pad-icon {
+  width: 12px;
+  flex-shrink: 0;
+}
+.rp-left {
+  color: #78716c;
+  opacity: 0;
+  transition: opacity 240ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+.rp-left[data-on] {
+  opacity: 1;
+}
+.rp-done {
+  color: #44403c;
+  opacity: 0;
+  transition: opacity 240ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+.rp-done[data-on] {
+  opacity: 1;
+}
+
+/* check draws itself via the pathLength=1 attribute: dasharray 1,
+   offset animates 1 → 0 */
+.rp-check {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 300ms cubic-bezier(0.23, 1, 0.32, 1) 80ms;
+}
+.rp-check[data-on] {
+  stroke-dashoffset: 0;
+}
+
+.rp-done-text {
+  transform: translateX(4px);
+  transition: transform 240ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+.rp-done-text[data-on] {
+  transform: none;
+}
+
+.dark .rp-track {
+  background: #1d1d1a;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.45);
+}
+.dark .rp-fill {
+  background: #93b0ff;
+}
+.dark .rp-left {
+  color: #a8a29e;
+}
+.dark .rp-done {
+  color: #e7e5e4;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rp-fill,
+  .rp-left,
+  .rp-done,
+  .rp-check,
+  .rp-done-text {
+    transition: none;
+  }
+}

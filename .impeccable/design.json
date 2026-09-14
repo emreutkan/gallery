@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-14T01:35:00Z",
+  "title": "Design System: UI Elements",
+  "extensions": {
+    "colorMeta": {
+      "canvas": { "role": "neutral", "displayName": "Canvas", "canonical": "#ffffff", "tonalRamp": ["#0c0c0d", "#1d1d20", "#3f3f46", "#71717a", "#a1a1aa", "#d4d4d8", "#f4f4f5", "#ffffff"] },
+      "ink": { "role": "primary", "displayName": "Ink", "canonical": "#09090b", "tonalRamp": ["#09090b", "#18181b", "#3f3f46", "#71717a", "#a1a1aa", "#d4d4d8", "#f4f4f5", "#fafafa"] },
+      "wash": { "role": "neutral", "displayName": "Wash", "canonical": "#f4f4f5", "tonalRamp": ["#0e0e10", "#18181b", "#27272a", "#3f3f46", "#71717a", "#d4d4d8", "#f4f4f5", "#fafafa"] },
+      "line": { "role": "neutral", "displayName": "Line", "canonical": "#e4e4e7", "tonalRamp": ["#18181b", "#27272a", "#3f3f46", "#71717a", "#a1a1aa", "#d4d4d8", "#e4e4e7", "#f4f4f5"] },
+      "code-surface": { "role": "neutral", "displayName": "Code Surface", "canonical": "#f7f7f8", "tonalRamp": ["#121214", "#18181b", "#27272a", "#3f3f46", "#71717a", "#d4d4d8", "#f7f7f8", "#ffffff"] }
+    },
+    "typographyMeta": {
+      "headline": { "displayName": "Headline", "purpose": "Element name at the top of its doc page." },
+      "code": { "displayName": "Code", "purpose": "Snippets, install chips, HUD captions, package tags." }
+    },
+    "shadows": [
+      { "name": "ambient-plate", "value": "0 1px 2px rgba(9,9,11,0.05), 0 4px 16px -8px rgba(9,9,11,0.1)", "purpose": "Preview plate and mobile drawer only — surfaces that present or float." },
+      { "name": "focus-ring", "value": "0 0 0 2px var(--bg), 0 0 0 4px var(--fg)", "purpose": "Focus-visible treatment; implemented as outline 2px solid var(--fg), offset 2px." }
+    ],
+    "motion": [
+      { "name": "ease-state", "value": "0.12s-0.18s ease", "purpose": "Hover, border, and press transitions on controls." },
+      { "name": "drawer-slide", "value": "transform 0.18s ease", "purpose": "Mobile sidebar drawer." }
+    ],
+    "breakpoints": [
+      { "name": "mobile", "value": "860px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Copy Button",
+      "kind": "button",
+      "refersTo": "copy-button",
+      "description": "Every code surface's action; swaps to a check + 'Copied' for 1.6s.",
+      "html": "<button class=\"ds-copy-btn\" type=\"button\"><svg width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"9\" y=\"9\" width=\"12\" height=\"12\" rx=\"2\"/><path d=\"M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1\"/></svg>Copy code</button>",
+      "css": ".ds-copy-btn { display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px; border: 1px solid var(--line); border-radius: 7px; background: var(--canvas); color: var(--ink-secondary); font: 500 12px Inter, system-ui, sans-serif; cursor: pointer; transition: border-color .12s ease, transform .08s ease; } .ds-copy-btn:hover { border-color: var(--line-strong); color: var(--ink); } .ds-copy-btn:active { transform: translateY(1px); }"
+    },
+    {
+      "name": "Segmented Control",
+      "kind": "input",
+      "refersTo": "segmented-option-active",
+      "description": "Prop picker — the active option inverts to ink-on-canvas.",
+      "html": "<div class=\"ds-seg\" role=\"group\"><button class=\"ds-seg-opt on\" type=\"button\">working</button><button class=\"ds-seg-opt\" type=\"button\">searching</button><button class=\"ds-seg-opt\" type=\"button\">solving</button></div>",
+      "css": ".ds-seg { display: inline-flex; flex-wrap: wrap; gap: 2px; padding: 2px; border: 1px solid var(--line); border-radius: 8px; background: var(--canvas); } .ds-seg-opt { border: 0; border-radius: 6px; padding: 4px 10px; background: none; color: var(--ink-muted); font: 400 13px 'JetBrains Mono', ui-monospace, monospace; cursor: pointer; } .ds-seg-opt:hover { color: var(--ink); } .ds-seg-opt.on { background: var(--ink); color: var(--canvas); }"
+    },
+    {
+      "name": "Switch",
+      "kind": "input",
+      "refersTo": "switch",
+      "description": "Boolean prop control; ink thumb on accent track when on.",
+      "html": "<button class=\"ds-switch on\" type=\"button\" role=\"switch\" aria-checked=\"true\" aria-label=\"Toggle\"></button>",
+      "css": ".ds-switch { position: relative; width: 36px; height: 20px; border-radius: 999px; border: 1px solid var(--line-strong); background: var(--wash); cursor: pointer; padding: 0; transition: background .15s ease; } .ds-switch::after { content: ''; position: absolute; top: 2px; left: 2px; width: 14px; height: 14px; border-radius: 50%; background: var(--ink); transition: transform .15s ease; } .ds-switch.on { background: var(--ink); border-color: var(--ink); } .ds-switch.on::after { transform: translateX(16px); background: var(--canvas); }"
+    },
+    {
+      "name": "Code Block",
+      "kind": "card",
+      "refersTo": "code-block",
+      "description": "Generated usage snippet; head row carries filename + copy.",
+      "html": "<div class=\"ds-codewrap\"><div class=\"ds-codewrap-head\"><span class=\"ds-codewrap-title\">usage.jsx</span></div><pre class=\"ds-code\"><code>import { ThinkingOrb } from 'thinking-orbs'\n\n&lt;ThinkingOrb state=\"searching\" size={64} /&gt;</code></pre></div>",
+      "css": ".ds-codewrap { border: 1px solid var(--line); border-radius: 10px; background: var(--code-surface); overflow: hidden; } .ds-codewrap-head { display: flex; align-items: center; justify-content: space-between; padding: 8px 8px 8px 14px; border-bottom: 1px solid var(--line); } .ds-codewrap-title { font: 400 12px 'JetBrains Mono', ui-monospace, monospace; color: var(--ink-muted); } .ds-code { margin: 0; padding: 14px 16px; overflow-x: auto; font: 400 13px/1.7 'JetBrains Mono', ui-monospace, monospace; color: var(--ink-secondary); }"
+    },
+    {
+      "name": "Provenance Chip",
+      "kind": "chip",
+      "refersTo": "install-chip",
+      "description": "The element's origin/facts line — files, license, no-install.",
+      "html": "<code class=\"ds-install-chip\">thinking-orb/ · 16 files · MIT · no npm install</code>",
+      "css": ".ds-install-chip { display: inline-flex; align-items: center; gap: 10px; padding: 7px 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--code-surface); font: 400 13px 'JetBrains Mono', ui-monospace, monospace; color: var(--ink-secondary); }"
+    },
+    {
+      "name": "State Cell",
+      "kind": "card",
+      "refersTo": "state-cell",
+      "description": "Variant grid cell; selected = ink hairline doubled via inset shadow.",
+      "html": "<button class=\"ds-state-cell on\" type=\"button\"><span class=\"ds-state-cell-label\">working</span></button>",
+      "css": ".ds-state-cell { display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 22px 12px 16px; border: 1px solid var(--line); border-radius: 10px; background: var(--canvas); cursor: pointer; font: inherit; transition: border-color .12s ease, box-shadow .12s ease; } .ds-state-cell:hover { border-color: var(--line-strong); } .ds-state-cell.on { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); } .ds-state-cell-label { font: 400 12px 'JetBrains Mono', ui-monospace, monospace; color: var(--ink-muted); } .ds-state-cell.on .ds-state-cell-label { color: var(--ink); }"
+    },
+    {
+      "name": "Sidebar Link",
+      "kind": "nav",
+      "refersTo": "sidebar-link-active",
+      "description": "Category-rail row; active = wash fill + full ink.",
+      "html": "<button class=\"ds-side-link active\" type=\"button\">Thinking Orb<span class=\"ds-side-pkg\">thinking-orbs</span></button>",
+      "css": ".ds-side-link { display: flex; align-items: center; gap: 8px; width: 100%; padding: 6px 8px; border: 0; border-radius: 7px; background: none; color: var(--ink-muted); font: 400 14px Inter, system-ui, sans-serif; text-align: left; cursor: pointer; } .ds-side-link:hover { color: var(--ink); background: var(--wash); } .ds-side-link.active { color: var(--ink); background: var(--wash); font-weight: 500; } .ds-side-pkg { margin-left: auto; font: 400 11px 'JetBrains Mono', ui-monospace, monospace; color: var(--ink-muted); }"
+    },
+    {
+      "name": "Preview Plate",
+      "kind": "card",
+      "refersTo": "preview-plate",
+      "description": "The only shadowed surface — dot-grid canvas + HUD captions.",
+      "html": "<div class=\"ds-plate\"><div class=\"ds-stage\"><span class=\"ds-stage-caption\">preview</span></div></div>",
+      "css": ".ds-plate { border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: var(--canvas); box-shadow: 0 1px 2px rgba(9,9,11,0.05), 0 4px 16px -8px rgba(9,9,11,0.1); } .ds-stage { position: relative; display: grid; place-items: center; min-height: 340px; padding: 48px 24px; background-image: radial-gradient(circle, var(--line-strong) 1px, transparent 1px); background-size: 20px 20px; background-position: center; } .ds-stage-caption { position: absolute; top: 12px; left: 14px; font: 400 11px 'JetBrains Mono', ui-monospace, monospace; color: var(--ink-muted); letter-spacing: 0.02em; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Category Standard",
+    "overview": "The deliberate canon: the docs-grade component gallery that Storybook and shadcn/ui set as the craft bar, executed without irony. Zinc neutrals, hairline borders, quiet type — every surface decision keeps the showcased element as the loudest thing on the page.",
+    "keyCharacteristics": [
+      "Live preview on a dot-grid canvas — the one textured surface",
+      "Controls drive the code snippet; generated source always mirrors preview state",
+      "Strict light/dark theming via .dark/.light classes on <html>; hosted elements follow it"
+    ],
+    "rules": [
+      { "name": "The Ink Is the Accent Rule", "body": "Active state is ink-on-canvas inversion, never a hue. Color enters only through showcased components.", "section": "colors" },
+      { "name": "The Two-Mode Rule", "body": "Every token exists as a light/dark pair; both classes are maintained on <html> so hosted components resolve theme=auto from an ancestor class.", "section": "colors" },
+      { "name": "The Flat-By-Default Rule", "body": "Cards, cells, and code blocks sit flat behind hairlines. Shadow belongs to the preview plate and floating drawer only.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do let the showcased element be the only colored or animated thing on the page.",
+      "Do keep the generated snippet in sync with the preview controls — omit props at defaults.",
+      "Do set both dark and light classes on <html> so hosted components resolve theme=auto correctly.",
+      "Do add elements through src/registry.jsx — never by editing the shell."
+    ],
+    "donts": [
+      "Don't introduce a brand accent color; the ink inversion is the active state.",
+      "Don't put shadows on cards, cells, or code blocks — hairlines carry them.",
+      "Don't use the mono face for prose or headings; it is for code, data, and HUD labels only.",
+      "Don't add kickers or eyebrows above headings."
+    ]
+  }
+}
