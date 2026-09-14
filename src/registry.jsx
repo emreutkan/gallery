@@ -29,6 +29,7 @@ import GooeyDoc from './elements/GooeyDoc.jsx'
 import TextMorphDoc from './elements/TextMorphDoc.jsx'
 import MorphIconDoc from './elements/MorphIconDoc.jsx'
 import CreditCardDoc from './elements/CreditCardDoc.jsx'
+import NumberFlowDoc from './elements/NumberFlowDoc.jsx'
 import CopyButtonDoc from './elements/CopyButtonDoc.jsx'
 import LoadingButtonDoc from './elements/LoadingButtonDoc.jsx'
 import HoldToConfirmDoc from './elements/HoldToConfirmDoc.jsx'
@@ -119,6 +120,7 @@ export const CATEGORIES = [
     elements: [
       { id: 'poll-results', name: 'Poll Results', pkg: 'interior.dev', Doc: PollResultsDoc },
       { id: 'spin-counter', name: 'Spin Counter', pkg: 'transitions.dev', Doc: SpinCounterDoc },
+      { id: 'number-flow', name: 'Number Flow', pkg: 'number-flow', Doc: NumberFlowDoc },
     ],
   },
   {
