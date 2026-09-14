@@ -1527,3 +1527,24 @@ pre.code {
   transition: transform 220ms cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 .go-plus.is-open { transform: rotate(45deg); }
+
+/* text-morph demo */
+.tm-demo-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding-block: 44px;
+}
+.tm-demo-text {
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--fg, #1c1917);
+}
+.tm-demo-num {
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  color: var(--fg, #1c1917);
+}

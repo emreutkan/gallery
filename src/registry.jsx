@@ -26,6 +26,7 @@ import SpinCounterDoc from './elements/SpinCounterDoc.jsx'
 import WordStreamDoc from './elements/WordStreamDoc.jsx'
 import SpinnersDoc from './elements/SpinnersDoc.jsx'
 import GooeyDoc from './elements/GooeyDoc.jsx'
+import TextMorphDoc from './elements/TextMorphDoc.jsx'
 import CopyButtonDoc from './elements/CopyButtonDoc.jsx'
 import LoadingButtonDoc from './elements/LoadingButtonDoc.jsx'
 import HoldToConfirmDoc from './elements/HoldToConfirmDoc.jsx'
@@ -123,6 +124,7 @@ export const CATEGORIES = [
       { id: 'logo-marquee', name: 'Logo Marquee', pkg: 'interior.dev', Doc: LogoMarqueeDoc },
       { id: 'number-pop-in', name: 'Number Pop-in', pkg: 'transitions.dev', Doc: NumberPopInDoc },
       { id: 'stagger-reveal', name: 'Stagger Reveal', pkg: 'transitions.dev', Doc: StaggerRevealDoc },
+      { id: 'text-morph', name: 'Text Morph', pkg: 'torph', Doc: TextMorphDoc },
     ],
   },
   {
